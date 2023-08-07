@@ -18,7 +18,7 @@ public class DataFileSaver {
             fw.flush();
         }
         catch(IOException e) {
-            System.out.println(String.format("Ошибка сохранения в файл <%s> содержимого <%s>", fileName, fileContents));
+            System.out.println(String.format("Ошибка сохранения в файл <%s> содержимого <%s>!", fileName, fileContents));
         }
     }
 }

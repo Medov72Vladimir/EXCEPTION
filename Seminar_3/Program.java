@@ -3,27 +3,23 @@ package Seminar_3;
 public class Program {
     public static void main(String[] args) {
 
-        System.out.println("Укажите следующие данные, разделённые пробелом:");
+        System.out.println("Введите данные, разделённые пробелом:");
         System.out.println("Фамилия Имя Отчество датарождения номертелефона пол");
 
         // Вводим бесконечный цикл, чтобы пользователь мог вводить свои данные вновь и вновь в случае неуспешной валидации введённых данных
         while (true) {
             try {
-                // Создаём экземпляр пользователя
-                Client client = new Client();
+                Client client = new Client(); // Создаём экземпляр пользователя
                 // Через консоль принимаем данные, проверяем и наполняем ими нашего пользователя
                 DataReceptor.getClientData(client);
-                // Сохраняем в файл
-                DataFileSaver.saveClientData(client);
+                DataFileSaver.saveClientData(client); // Сохраняем в файл
 
-                System.out.println("Данные успешно сохранены.");
-                // Выходим из бесконечного цикла
-                break;
+                System.out.println("ОК! Данные успешно сохранены.");
+                break; // Выходим из бесконечного цикла
             } catch (RuntimeException e) {
-                // DataReceptor.getHumanData при проблеме с валидацией данных выбрасывает исключение, которое выводим здесь
-                System.err.println(e.getMessage());
-                System.out.println("Укажите данные заново:");
-                break;
+                System.err.println(e.getMessage()); //при проблеме с валидацией данных выбрасывает исключение
+                System.out.println("ОШИБКА! Укажите данные заново:");
+                break; // Выходим из бесконечного цикла
             }
         }
     }
